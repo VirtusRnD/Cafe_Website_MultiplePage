@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+:root {
+  --bg-primary: #fefae0;
+  --bg-card: #faedcd;
+  --text-main: #283618;
+  --text-muted: #606c38;
+  --accent: #dda15e;
+  --accent-secondary: #bc6c25;
+  --border-color: #e9edc9;
+  --radius-custom: 2rem;
+}
+
+.fun-card {
+  background-color: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-custom, 1.5rem);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="cozy-latte"] {
+  --bg-primary: #fefae0;
+  --bg-card: #faedcd;
+  --text-main: #283618;
+  --text-muted: #606c38;
+  --accent: #dda15e;
+  --accent-secondary: #bc6c25;
+  --border-color: #e9edc9;
+  --radius-custom: 2rem;
+}
+
+[data-theme="pastel-bakery"] {
+  --bg-primary: #fff5f5;
+  --bg-card: #ffe3e3;
+  --text-main: #4a2e2b;
+  --text-muted: #8c5b55;
+  --accent: #ff8787;
+  --accent-secondary: #f783ac;
+  --border-color: #ffc9c9;
+  --radius-custom: 2.5rem;
+}
+
+[data-theme="matcha-vibe"] {
+  --bg-primary: #f4f7f4;
+  --bg-card: #e8efe8;
+  --text-main: #1b382b;
+  --text-muted: #4a6b5d;
+  --accent: #52b788;
+  --accent-secondary: #2d6a4f;
+  --border-color: #d8e2dc;
+  --radius-custom: 1.8rem;
+}
