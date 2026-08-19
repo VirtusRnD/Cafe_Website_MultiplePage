@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { cafeConfig } from "./config/cafeConfig";
+import { io } from "socket.io-client";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -13,11 +13,42 @@ import ContactPage from "./pages/ContactPage";
 
 import "./styles/cafeTheme.css";
 
+const BACKEND_URL = "https://theme-backend-vh34.onrender.com";
+const socket = io(BACKEND_URL);
+const CURRENT_SITE_ID = "cafe-multipage";
+
 export default function App() {
   const { pathname } = useLocation();
+  const [currentTheme, setCurrentTheme] = useState("regent-classic");
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", cafeConfig.theme || "cozy-latte");
+    fetch(`${BACKEND_URL}/api/themes/${CURRENT_SITE_ID}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.activeTheme) {
+          setCurrentTheme(data.activeTheme);
+        }
+      })
+      .catch((err) => console.error(err));
+
+    const handleThemeChange = (data) => {
+      if (data.siteId === CURRENT_SITE_ID && data.activeTheme) {
+        setCurrentTheme(data.activeTheme);
+      }
+    };
+
+    socket.on("theme_changed", handleThemeChange);
+
+    return () => {
+      socket.off("theme_changed", handleThemeChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", currentTheme);
+  }, [currentTheme]);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
