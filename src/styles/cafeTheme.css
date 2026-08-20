@@ -1,125 +1,167 @@
 @import "tailwindcss";
 
-/* ==========================================
-   5 FARKLI KAFE TEMA RENK SİSTEMİ
-   ========================================== */
-
-/* 1. REGENT CLASSIC (Siyah, Altın & Minimalist Dark) */
+/* 1. REGENT CLASSIC (Milano Vintage - Krem Zemin & Vintage Kağıt Çizgileri) */
+:root,
 [data-theme="regent-classic"],
-:root {
-  --bg-primary: #121212;
-  --bg-card: #1a1a1a;
-  --text-main: #f5f5f7;
-  --text-muted: #a1a1a6;
-  --accent: #d4af37;
-  --accent-highlight: #e5c158;
-  --btn-bg: #ffffff;
-  --btn-text: #121212;
-  --border-color: #2a2a2a;
-  --font-heading: 'Outfit', system-ui, sans-serif;
-}
-
-/* 2. COZY LATTE (Sıcak Krem, Yulaf Sütü & Kahve Tonları) */
-[data-theme="cozy-latte"] {
-  --bg-primary: #f9f6f0;
+html[data-theme="regent-classic"],
+body[data-theme="regent-classic"] {
+  --bg-primary: #f8f4ec;
   --bg-card: #ffffff;
-  --text-main: #2b231d;
-  --text-muted: #73675c;
-  --accent: #b07d5b;
-  --accent-highlight: #c98a63;
-  --btn-bg: #2b231d;
+  --text-main: #1f1814;
+  --text-muted: #6e6259;
+  --accent: #b86b35;
+  --accent-highlight: #b86b35;
+  --btn-bg: #1f1814;
   --btn-text: #ffffff;
-  --border-color: #e8e2d8;
-  --font-heading: 'Outfit', system-ui, sans-serif;
+  --border-color: #e5dacb;
+  --font-heading: 'DM Serif Display', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --card-radius: 2px;
+  --card-shadow: 0 4px 20px rgba(31, 24, 20, 0.06);
+  --bg-pattern: repeating-linear-gradient(0deg, transparent, transparent 35px, rgba(184, 107, 53, 0.12) 35px, rgba(184, 107, 53, 0.12) 36px);
 }
 
-/* 3. MATCHA GARDEN (Pastel Yeşil, Fıstık & Ferah Tonlar) */
-[data-theme="matcha-garden"] {
-  --bg-primary: #f3f6f3;
+/* 2. ESPRESSO ROASTERY (Lo-Fi Dark Roastery & Geometrik Noktalı Izgara) */
+[data-theme="espresso-roastery"],
+html[data-theme="espresso-roastery"],
+body[data-theme="espresso-roastery"] {
+  --bg-primary: #110e0b;
+  --bg-card: #1c1713;
+  --text-main: #f5ece1;
+  --text-muted: #a69889;
+  --accent: #e5984d;
+  --accent-highlight: #ffaa54;
+  --btn-bg: #e5984d;
+  --btn-text: #110e0b;
+  --border-color: rgba(229, 152, 77, 0.25);
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --card-radius: 6px;
+  --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --bg-pattern: radial-gradient(rgba(229, 152, 77, 0.22) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+/* 3. BOTANICAL GARDEN (Organik Sera & Flora Dalgaları) */
+[data-theme="botanical-garden"],
+html[data-theme="botanical-garden"],
+body[data-theme="botanical-garden"] {
+  --bg-primary: #edf3ee;
   --bg-card: #ffffff;
-  --text-main: #1c2e24;
-  --text-muted: #576d60;
-  --accent: #4a7c59;
-  --accent-highlight: #6b9e7a;
-  --btn-bg: #1c2e24;
+  --text-main: #18281e;
+  --text-muted: #536959;
+  --accent: #2d5a37;
+  --accent-highlight: #2d5a37;
+  --btn-bg: #2d5a37;
   --btn-text: #ffffff;
-  --border-color: #d8e2dc;
-  --font-heading: 'Outfit', system-ui, sans-serif;
+  --border-color: #cdded0;
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --card-radius: 12px;
+  --card-shadow: 0 6px 24px rgba(45, 90, 55, 0.08);
+  --bg-pattern: radial-gradient(circle at 100% 100%, rgba(45, 90, 55, 0.12) 0, transparent 45%), radial-gradient(circle at 0 0, rgba(45, 90, 55, 0.12) 0, transparent 45%);
 }
 
-/* 4. MIDNIGHT BREW (Gece Mavisi, Lacivert & Bakır Tonları) */
-[data-theme="midnight-brew"] {
-  --bg-primary: #0f172a;
-  --bg-card: #1e293b;
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --accent: #ea580c;
-  --accent-highlight: #f97316;
-  --btn-bg: #38bdf8;
-  --btn-text: #0f172a;
-  --border-color: #334155;
-  --font-heading: 'Outfit', system-ui, sans-serif;
+/* 4. MATCHA & OAT (Kyoto Zen & Zarif Artisan Serif Tipografi) */
+[data-theme="matcha-oat"],
+html[data-theme="matcha-oat"],
+body[data-theme="matcha-oat"] {
+  --bg-primary: #f5f4e8;
+  --bg-card: #fefefb;
+  --text-main: #21281e;
+  --text-muted: #687262;
+  --accent: #55714b;
+  --accent-highlight: #7a5030;
+  --btn-bg: #55714b;
+  --btn-text: #ffffff;
+  --border-color: #dcd7c5;
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --card-radius: 4px;
+  --card-shadow: 0 4px 20px rgba(85, 113, 75, 0.08);
+  --bg-pattern: radial-gradient(#c2bfa8 1.2px, transparent 1.2px);
+  background-size: 18px 18px;
 }
 
-/* 5. VINTAGE ROAST (Retro Sıcak Taba, Ahşap & Karamel) */
-[data-theme="vintage-roast"] {
-  --bg-primary: #24140e;
-  --bg-card: #321c13;
-  --text-main: #f3e9dc;
-  --text-muted: #b89c88;
-  --accent: #de9b35;
-  --accent-highlight: #eab308;
-  --btn-bg: #f3e9dc;
-  --btn-text: #24140e;
-  --border-color: #4a2b1f;
-  --font-heading: 'Outfit', system-ui, sans-serif;
+/* matcha-oat başlıkları için zarif serif ve harf aralığı */
+[data-theme="matcha-oat"] h1,
+[data-theme="matcha-oat"] h2,
+[data-theme="matcha-oat"] h3,
+[data-theme="matcha-oat"] .theme-heading {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.01em !important;
 }
 
-/* TEMEL BİLEŞEN VE KART STİLLERİ */
+/* 5. NORDIC MINIMAL (Kopenhag Blueprint Mimari Izgara) */
+[data-theme="nordic-minimal"],
+html[data-theme="nordic-minimal"],
+body[data-theme="nordic-minimal"] {
+  --bg-primary: #e8e8e8;
+  --bg-card: #f9f9f9;
+  --text-main: #0a0a0a;
+  --text-muted: #666666;
+  --accent: #0a0a0a;
+  --accent-highlight: #333333;
+  --btn-bg: #0a0a0a;
+  --btn-text: #ffffff;
+  --border-color: #c4c4c4;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --card-radius: 0px;
+  --card-shadow: none;
+  --bg-pattern: linear-gradient(to right, rgba(0,0,0,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
 
-body {
+/* ==========================================================================
+   GENEL GÖVDE VE BİLEŞEN AYARLARI
+   ========================================================================== */
+html, body {
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-  background-color: var(--bg-primary);
-  color: var(--text-main);
-  font-family: var(--font-heading);
+}
+
+body {
+  background-color: var(--bg-primary) !important;
+  background-image: var(--bg-pattern) !important;
+  background-attachment: fixed !important;
+  color: var(--text-main) !important;
+  font-family: var(--font-body), system-ui, sans-serif !important;
   overflow-x: hidden;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+h1, h2, h3, .theme-heading {
+  font-family: var(--font-heading), serif !important;
+  letter-spacing: -0.02em;
 }
 
 .regent-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
 }
 
 .regent-card:hover {
   border-color: var(--accent);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
-/*  SAF CSS KART GELİŞ ANİMASYONLARI */
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.theme-btn {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border-radius: var(--card-radius);
+  font-family: var(--font-body);
+  transition: all 0.25s ease;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.4s ease-out forwards;
-}
-
-.animate-slideUp {
-  animation: slideUp 0.5s ease-out forwards;
+.theme-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
 }

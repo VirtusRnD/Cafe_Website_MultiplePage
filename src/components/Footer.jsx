@@ -5,11 +5,11 @@ export default function Footer() {
   const { info } = cafeConfig;
 
   return (
-    <footer className="bg-[var(--bg-card)] border-t border-[var(--border-color)] py-10 px-5 md:px-12 text-left">
+    <footer className="bg-[var(--bg-card)] border-t border-[var(--border-color)] py-12 px-5 md:px-12 text-left relative z-10">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pb-8 border-b border-[var(--border-color)]">
         
-        <div className="space-y-1 max-w-sm">
-          <Link to="/" className="text-base font-black tracking-widest uppercase text-[var(--text-main)] font-[var(--font-heading)]">
+        <div className="space-y-2 max-w-sm">
+          <Link to="/" className="text-lg font-black tracking-widest uppercase text-[var(--text-main)] font-[var(--font-heading)] block">
             {info.name}
           </Link>
           <p className="text-xs text-[var(--text-muted)] leading-relaxed">
@@ -36,7 +36,7 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto pt-6 flex flex-col sm:flex-row justify-between items-center text-[11px] text-[var(--text-muted)] gap-3">
         <p>© 2026 {info.name}. Tüm hakları saklıdır.</p>
-        <p className="font-semibold text-[var(--text-main)]">Nitelikli Kahve & Zanaat Atölyeleri</p>
+        <p className="font-semibold text-[var(--text-main)] tracking-wide">Nitelikli Kahve & Zanaat Atölyeleri</p>
       </div>
     </footer>
   );

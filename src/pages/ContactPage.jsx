@@ -10,11 +10,11 @@ export default function ContactPage() {
         <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] text-[var(--accent-highlight)] block mb-2">
           Ulaşım & Ziyaret
         </span>
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-[var(--text-main)]">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-[var(--text-main)] font-[var(--font-heading)]">
           İletişim, Konum & Çalışma Alanı
         </h1>
         <p className="text-xs md:text-sm text-[var(--text-muted)] max-w-xl mt-3">
-          Kahve içmek, seramik atölyelerimize katılmak veya laptopunuzla sessizce çalışmak için Alsancak'taki alanımıza davetlisiniz.
+          Kahve içmek, seramik atölyelerimize katılmak veya laptopunuzla sessizce çalışmak için alanımıza davetlisiniz.
         </p>
       </div>
 
@@ -49,19 +49,18 @@ export default function ContactPage() {
             </p>
           </div>
           <div className="pt-3 border-t border-[var(--border-color)]">
-            <span className="text-[11px] font-bold text-[var(--text-main)]">Wi-Fi Ağ Şifresi: <code className="text-[var(--accent-highlight)]">{info.wifiCode}</code></span>
+            <span className="text-[11px] font-bold text-[var(--text-main)]">Wi-Fi Ağ Şifresi: <code className="text-[var(--accent-highlight)] font-mono">{info.wifiCode}</code></span>
           </div>
         </div>
       </div>
 
       <div className="grid lg:grid-cols-12 gap-8 items-stretch">
-        
         <div className="lg:col-span-7 regent-card p-4 min-h-[350px] flex flex-col justify-between">
-          <div className="w-full h-full min-h-[300px] bg-[var(--bg-primary)] overflow-hidden relative">
+          <div className="w-full h-full min-h-[300px] bg-[var(--bg-primary)] overflow-hidden relative rounded-[var(--card-radius)]">
             <iframe 
               title="Google Maps Location"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3124.939223788914!2d27.1408333!3d38.4380556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDI2JzE3LjAiTiAyN8KwMDgnMjcuMCJF!5e0!3m2!1str!2str!4v1620000000000!5m2!1str!2str" 
-              className="w-full h-full border-0 grayscale opacity-85 hover:grayscale-0 transition-all duration-500"
+              className="w-full h-full border-0 opacity-85 hover:opacity-100 transition-opacity duration-500"
               loading="lazy"
             ></iframe>
           </div>
@@ -72,7 +71,7 @@ export default function ContactPage() {
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--accent-highlight)] block mb-1">
               Bize Ulaşın
             </span>
-            <h3 className="text-lg font-extrabold text-[var(--text-main)] mb-4">
+            <h3 className="text-lg font-extrabold text-[var(--text-main)] mb-4 font-[var(--font-heading)]">
               Atölyeler veya Özel Etkinlikler İçin Mesaj Gönderin
             </h3>
             
@@ -80,28 +79,27 @@ export default function ContactPage() {
               <input 
                 type="text" 
                 placeholder="Adınız Soyadınız" 
-                className="w-full px-3.5 py-2.5 text-xs bg-[var(--bg-primary)] text-[var(--text-main)] border border-[var(--border-color)] outline-none focus:border-[var(--accent)] transition-colors"
+                className="w-full px-3.5 py-2.5 text-xs bg-[var(--bg-primary)] text-[var(--text-main)] border border-[var(--border-color)] outline-none focus:border-[var(--accent)] transition-colors rounded-[var(--card-radius)]"
               />
               <input 
                 type="email" 
                 placeholder="E-posta Adresiniz" 
-                className="w-full px-3.5 py-2.5 text-xs bg-[var(--bg-primary)] text-[var(--text-main)] border border-[var(--border-color)] outline-none focus:border-[var(--accent)] transition-colors"
+                className="w-full px-3.5 py-2.5 text-xs bg-[var(--bg-primary)] text-[var(--text-main)] border border-[var(--border-color)] outline-none focus:border-[var(--accent)] transition-colors rounded-[var(--card-radius)]"
               />
               <textarea 
                 rows="3" 
                 placeholder="Mesajınız..." 
-                className="w-full px-3.5 py-2.5 text-xs bg-[var(--bg-primary)] text-[var(--text-main)] border border-[var(--border-color)] outline-none focus:border-[var(--accent)] transition-colors resize-none"
+                className="w-full px-3.5 py-2.5 text-xs bg-[var(--bg-primary)] text-[var(--text-main)] border border-[var(--border-color)] outline-none focus:border-[var(--accent)] transition-colors resize-none rounded-[var(--card-radius)]"
               ></textarea>
               <button 
                 type="submit" 
-                className="w-full py-3 bg-[var(--btn-bg)] text-[var(--btn-text)] text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity cursor-pointer"
+                className="w-full py-3 theme-btn text-xs font-bold uppercase tracking-widest cursor-pointer shadow-sm"
               >
                 Mesaj Gönder
               </button>
             </form>
           </div>
         </div>
-
       </div>
 
     </div>

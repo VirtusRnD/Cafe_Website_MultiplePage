@@ -1,3 +1,4 @@
+// src/App.jsx (Multipage)
 import { useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { io } from "socket.io-client";
@@ -11,6 +12,7 @@ import WorkshopsPage from "./pages/WorkshopsPage";
 import StoryPage from "./pages/StoryPage";
 import ContactPage from "./pages/ContactPage";
 
+import { cafeConfig } from "./config/cafeConfig"; 
 import "./styles/cafeTheme.css";
 
 const BACKEND_URL = "https://theme-backend-vh34.onrender.com";
@@ -19,17 +21,17 @@ const CURRENT_SITE_ID = "cafe-multipage";
 
 export default function App() {
   const { pathname } = useLocation();
-  const [currentTheme, setCurrentTheme] = useState("regent-classic");
+  const [currentTheme, setCurrentTheme] = useState(cafeConfig.theme || "regent-classic");
 
   useEffect(() => {
     fetch(`${BACKEND_URL}/api/themes/${CURRENT_SITE_ID}`)
       .then((res) => res.json())
       .then((data) => {
-        if (data.activeTheme) {
+        if (data && data.activeTheme) {
           setCurrentTheme(data.activeTheme);
         }
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error("Theme fetch error:", err));
 
     const handleThemeChange = (data) => {
       if (data.siteId === CURRENT_SITE_ID && data.activeTheme) {
@@ -46,6 +48,7 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", currentTheme);
+    document.body.setAttribute("data-theme", currentTheme);
   }, [currentTheme]);
 
   useEffect(() => {
@@ -53,7 +56,7 @@ export default function App() {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-[var(--bg-primary)] text-[var(--text-main)] transition-colors duration-300">
+    <div className="min-h-screen flex flex-col justify-between bg-transparent text-[var(--text-main)] transition-colors duration-300">
       <Navbar />
       <main className="flex-1">
         <Routes>

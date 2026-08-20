@@ -15,7 +15,7 @@ export default function MenuPage() {
   return (
     <div className="pt-28 md:pt-36 pb-16 md:py-24 px-5 md:px-12 max-w-7xl mx-auto">
       
-      <div className="text-left mb-8 md:mb-12 border-b border-[var(--border-color)] pb-6 md:pb-8 flex flex-col lg:flex-row lg:items-end justify-between">
+      <div className="text-left mb-8 md:mb-12 border-b border-[var(--border-color)] pb-6 md:pb-8 flex flex-col lg:flex-row lg:items-end justify-between gap-6">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -24,7 +24,7 @@ export default function MenuPage() {
           <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-[var(--accent-highlight)] font-bold block mb-2">
             Katalog
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-[var(--text-main)]">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-[var(--text-main)] font-[var(--font-heading)]">
             Kahve & Eşlikçi Menüsü
           </h1>
         </motion.div>
@@ -33,13 +33,13 @@ export default function MenuPage() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4 }}
-          className="flex flex-wrap gap-2 mt-6 lg:mt-0"
+          className="flex flex-wrap gap-2"
         >
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveTab(cat.id)}
-              className={`px-3.5 md:px-4 py-2 text-[11px] md:text-xs font-bold uppercase tracking-wider transition-all cursor-pointer border ${
+              className={`px-4 py-2 text-[11px] md:text-xs font-bold uppercase tracking-wider transition-all cursor-pointer border rounded-[var(--card-radius)] ${
                 activeTab === cat.id
                   ? "bg-[var(--btn-bg)] text-[var(--btn-text)] border-[var(--btn-bg)] shadow-sm"
                   : "bg-[var(--bg-card)] text-[var(--text-main)] border-[var(--border-color)] hover:border-[var(--text-main)]"
@@ -60,7 +60,7 @@ export default function MenuPage() {
             transition={{ duration: 0.3, delay: index * 0.05 }}
             className="regent-card p-4 flex flex-col justify-between group"
           >
-            <div className="h-48 md:h-56 w-full overflow-hidden bg-[var(--bg-primary)] mb-3 relative">
+            <div className="h-48 md:h-56 w-full overflow-hidden bg-[var(--bg-primary)] mb-3 relative rounded-[var(--card-radius)]">
               <img
                 src={item.image}
                 alt={item.name}

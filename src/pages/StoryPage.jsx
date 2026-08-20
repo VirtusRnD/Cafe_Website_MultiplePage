@@ -14,7 +14,7 @@ export default function StoryPage() {
           <span className="text-xs uppercase tracking-[0.3em] text-[var(--accent-highlight)] font-bold block">
             Demleme Felsefesi
           </span>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-[var(--text-main)] leading-tight">
+          <h1 className="text-3xl md:text-5xl font-extrabold text-[var(--text-main)] leading-tight font-[var(--font-heading)]">
             {story.title}
           </h1>
           <p className="text-xs md:text-sm text-[var(--text-muted)] leading-relaxed font-normal">
@@ -28,11 +28,11 @@ export default function StoryPage() {
           <span className="text-xs font-bold uppercase tracking-[0.3em] text-[var(--accent-highlight)] block">
             Kavrum Standartları
           </span>
-          <h2 className="text-2xl md:text-4xl font-extrabold text-[var(--text-main)]">
+          <h2 className="text-2xl md:text-4xl font-extrabold text-[var(--text-main)] font-[var(--font-heading)]">
             Hassas Sıcaklık Profillemesi
           </h2>
           <p className="text-xs md:text-sm text-[var(--text-muted)] leading-relaxed">
-            Her çekirdek türü kendine özgü bir ısı profili gerektirir. REGENT Roastery bünyesinde kavrulan kahvelerimiz haftalık olarak taze paketlenir.
+            Her çekirdek türü kendine özgü bir ısı profili gerektirir. Roastery bünyesinde kavrulan kahvelerimiz haftalık olarak taze paketlenir.
           </p>
         </div>
         <div className="lg:col-span-5 h-[320px] regent-card overflow-hidden">

@@ -1,7 +1,7 @@
 export const cafeConfig = {
-  // 🎨 AKTİF TEMA SEÇİMİ (Aşağıdaki isimlerden birini yazabilirsiniz):
-  // "regent-classic" | "cozy-latte" | "matcha-garden" | "midnight-brew" | "vintage-roast"
-  theme: "cozy-latte",
+  // 🎨 AKTİF TEMA SEÇİMİ (Aşağıdaki Onepage temalarından birini yazabilirsiniz):
+  // "regent-classic" | "espresso-roastery" | "botanical-garden" | "matcha-oat" | "nordic-minimal"
+  theme: "matcha-oat",
 
   info: {
     name: "Bloom & Brew",
