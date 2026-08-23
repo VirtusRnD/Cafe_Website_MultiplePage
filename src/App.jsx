@@ -1,4 +1,3 @@
-// src/App.jsx (Multipage)
 import { useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { io } from "socket.io-client";
@@ -21,7 +20,16 @@ const CURRENT_SITE_ID = "cafe-multipage";
 
 export default function App() {
   const { pathname } = useLocation();
-  const [currentTheme, setCurrentTheme] = useState(cafeConfig.theme || "regent-classic");
+  const [currentTheme, setCurrentTheme] = useState(() => {
+    const savedTheme = localStorage.getItem(`${CURRENT_SITE_ID}-theme`);
+    return savedTheme || cafeConfig.theme || "regent-classic";
+  });
+
+  useEffect(() => {
+    if (cafeConfig.theme && !localStorage.getItem(`${CURRENT_SITE_ID}-theme`)) {
+      setCurrentTheme(cafeConfig.theme);
+    }
+  }, [cafeConfig.theme]);
 
   useEffect(() => {
     fetch(`${BACKEND_URL}/api/themes/${CURRENT_SITE_ID}`)
@@ -31,7 +39,7 @@ export default function App() {
           setCurrentTheme(data.activeTheme);
         }
       })
-      .catch((err) => console.error("Theme fetch error:", err));
+      .catch((err) => console.error(err));
 
     const handleThemeChange = (data) => {
       if (data.siteId === CURRENT_SITE_ID && data.activeTheme) {
@@ -47,6 +55,18 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    const handleMessage = (event) => {
+      if (event.data?.type === "THEME_CHANGE" && event.data.themeKey && event.data.siteId === CURRENT_SITE_ID) {
+        setCurrentTheme(event.data.themeKey);
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(`${CURRENT_SITE_ID}-theme`, currentTheme);
     document.documentElement.setAttribute("data-theme", currentTheme);
     document.body.setAttribute("data-theme", currentTheme);
   }, [currentTheme]);
