@@ -8,6 +8,7 @@ export const cafeConfig = {
     tagline: "Nitelikli Çekirdek & Artisan Demlemeler",
     subtitle: "Taze kavrulmuş specialty kahveler, fırından yeni çıkmış sıcak Fransız kruvasanları ve gün boyu sessiz çalışma alanları.",
     phone: "+90 (232) 444 0 900",
+    email: "info@example.com", // yayına almadan önce değiştirin: iletişim formu bu adrese düşer
     address: "Alsancak Sevgi Yolu No:12, İzmir",
     hours: "Hafta İçi: 07:30 - 22:00 | Hafta Sonu: 08:30 - 23:00",
     wifiCode: "bloombrew2026",
